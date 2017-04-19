@@ -41,13 +41,19 @@ print(C_hat)
 
 
 # roll = numpy function to flatten the matrix, shift the elements by a certain amount, then return an array matrix of original proportions
-# eye = returns an N x N array, with zeros everywhere, except for 1's on the diagonals. 
+# eye = returns an N x N array, with zeros everywhere, except for 1's on the diagonals.
+# kron = kronecker product of two arrays. Assumes each array is the same size, if not appending 1's to the smaller array.
 ShiftPlus = roll(eye(P), 1, axis=0)
 ShiftMinus = roll(eye(P), -1, axis=0)
 S_hat = kron(ShiftPlus, C00) + kron(ShiftMinus, C11)
 
 print("ShiftPlus")
 print(ShiftPlus)
+print()
+
+print("ShiftMinus")
+print(ShiftMinus)
+print()
 
 U = S_hat.dot(kron(eye(P),C_hat))
 
