@@ -4,15 +4,19 @@ from matplotlib.pyplot import *
 N = 100 #number of steps
 P = 2*N+1 #number of positions
 
+# array = creating an array in numpy
 coin0 = array([1,0]) # |0>
 coin1 = array([0,1]) # |1>
 
+# outer = matrix multiplication using numpy
 C00 = outer(coin0,coin0) # |0><0|
 C01 = outer(coin0,coin1) #|0><1|
 C10 = outer(coin1,coin0) # |1><0|
 C11 = outer(coin1,coin1) #|1><1|
 
 C_hat = (C00 + C01 + C10 - C11)/sqrt(2.)
+
+print(C_hat)
 
 ShiftPlus = roll(eye(P), 1, axis=0)
 ShiftMinus = roll(eye(P), -1, axis=0)
