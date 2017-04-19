@@ -10,9 +10,9 @@ coin1 = array([0,1]) # |1>
 
 # outer = matrix multiplication using numpy
 C00 = outer(coin0,coin0) # |0><0|
-C01 = outer(coin0,coin1) #|0><1|
+C01 = outer(coin0,coin1) # |0><1|
 C10 = outer(coin1,coin0) # |1><0|
-C11 = outer(coin1,coin1) #|1><1|
+C11 = outer(coin1,coin1) # |1><1|
 
 print("C00:")
 print(C00)
@@ -39,9 +39,15 @@ C_hat = (C00 + C01 + C10 - C11)/sqrt(2.)
 print("C_hat")
 print(C_hat)
 
+
+# roll = numpy function to flatten the matrix, shift the elements by a certain amount, then return an array matrix of original proportions
+# eye = returns an N x N array, with zeros everywhere, except for 1's on the diagonals. 
 ShiftPlus = roll(eye(P), 1, axis=0)
 ShiftMinus = roll(eye(P), -1, axis=0)
 S_hat = kron(ShiftPlus, C00) + kron(ShiftMinus, C11)
+
+print("ShiftPlus")
+print(ShiftPlus)
 
 U = S_hat.dot(kron(eye(P),C_hat))
 
