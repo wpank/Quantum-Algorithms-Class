@@ -4,7 +4,7 @@ from matplotlib.pyplot import *
 N = 100 #number of steps
 P = 2*N+1 #number of positions
 
-# array = creating an array in numpy
+# create a matrix array in numpy
 coin0 = array([1,0]) # |0>
 coin1 = array([0,1]) # |1>
 
@@ -14,8 +14,29 @@ C01 = outer(coin0,coin1) #|0><1|
 C10 = outer(coin1,coin0) # |1><0|
 C11 = outer(coin1,coin1) #|1><1|
 
+print("C00:")
+print(C00)
+print()
+
+print("C01:")
+print(C01)
+print()
+
+print("C10")
+print(C10)
+print()
+
+print("C11")
+print(C11)
+print()
+
+print("C00 + C01 + C10 - C11:")
+print(C00+C01+C10 - C11)
+print()
+
 C_hat = (C00 + C01 + C10 - C11)/sqrt(2.)
 
+print("C_hat")
 print(C_hat)
 
 ShiftPlus = roll(eye(P), 1, axis=0)
